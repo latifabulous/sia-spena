@@ -70,9 +70,9 @@ class SiswaController extends Controller
             $foto->move('uploads/siswa/', $new_foto);
         } else {
             if ($request->jk == 'L') {
-                $foto = 'uploads/siswa/52471919042020_male.jpg';
+                $foto = 'uploads/siswa/27231912072020_male.jpg';
             } else {
-                $foto = 'uploads/siswa/50271431012020_female.jpg';
+                $foto = 'uploads/siswa/21201912072020_female.jpg';
             }
             Guru::create([
                 'no_induk' => $request->no_induk,

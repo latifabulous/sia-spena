@@ -20,8 +20,8 @@
                 <tr>
                     <th>No.</th>
                     <th>Nama Mapel</th>
-                    <th>Paket</th>
-                    <th>Kelompok</th>
+                    {{-- <th>Paket</th>
+                    <th>Kelompok</th> --}}
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -30,12 +30,12 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $data->nama_mapel }}</td>
-                    @if ( $data->paket_id == 9 )
+                    {{-- @if ( $data->paket_id == 9 )
                       <td>{{ 'Semua' }}</td>
                     @else
                       <td>{{ $data->paket->ket }}</td>
                     @endif
-                    <td>{{ $data->kelompok }}</td>
+                    <td>{{ $data->kelompok }}</td> --}}
                     <td>
                         <form action="{{ route('mapel.destroy', $data->id) }}" method="post">
                             @csrf
@@ -74,7 +74,7 @@
                   <label for="nama_mapel">Nama Mapel</label>
                   <input type="text" id="nama_mapel" name="nama_mapel" class="form-control @error('nama_mapel') is-invalid @enderror" placeholder="{{ __('Nama Mata Pelajaran') }}">
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label for="paket_id">Paket</label>
                   <select id="paket_id" name="paket_id" class="form-control @error('paket_id') is-invalid @enderror select2bs4">
                     <option value="">-- Pilih Paket Mapel --</option>
@@ -92,7 +92,7 @@
                       <option value="B">Pelajaran Khusus</option>
                       <option value="C">Pelajaran Keahlian</option>
                     </select>
-                </div>
+                </div> --}}
               </div>
             </div>
         </div>

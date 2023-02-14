@@ -405,3 +405,7 @@ body {
 .toast-message:hover {
   box-shadow: 0 0 35px 0 rgb(154 161 171 / 15%) !important;
 }
+
+.small-box {
+  background-color: white;
+}

@@ -17,9 +17,9 @@ class SiswaImport implements ToModel
     {
         $kelas = Kelas::where('nama_kelas', $row[3])->first();
         if ($row[2] == 'L') {
-            $foto = 'uploads/siswa/52471919042020_male.jpg';
+            $foto = 'uploads/siswa/27231912072020_male.jpg';
         } else {
-            $foto = 'uploads/siswa/50271431012020_female.jpg';
+            $foto = 'uploads/siswa/21201912072020_female.jpg';
         }
 
         return new Siswa([

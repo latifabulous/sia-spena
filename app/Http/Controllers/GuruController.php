@@ -75,9 +75,9 @@ class GuruController extends Controller
             $foto->move('uploads/guru/', $new_foto);
         } else {
             if ($request->jk == 'L') {
-                $foto = 'uploads/guru/35251431012020_male.jpg';
+                $foto = 'uploads/guru/27231912072020_male.jpg';
             } else {
-                $foto = 'uploads/guru/23171022042020_female.jpg';
+                $foto = 'uploads/guru/21201912072020_female.jpg';
             }
             Guru::create([
                 'id_card' => $request->id_card,

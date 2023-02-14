@@ -30,9 +30,9 @@ class GuruImport implements ToModel
         }
         $mapel = Mapel::where('nama_mapel', $row[3])->first();
         if ($row[2] == 'L') {
-            $foto = 'uploads/guru/35251431012020_male.jpg';
+            $foto = 'uploads/guru/27231912072020_male.jpg';
         } else {
-            $foto = 'uploads/guru/23171022042020_female.jpg';
+            $foto = 'uploads/guru/21201912072020_female.jpg';
         }
 
         return new Guru([
@@ -40,6 +40,7 @@ class GuruImport implements ToModel
             'nama_guru' => $row[0],
             'nip' => $row[1],
             'jk' => $row[2],
+            'kode' => $row[4],
             'foto' => $foto,
             'mapel_id' => $mapel->id,
         ]);

@@ -74,7 +74,6 @@
             <div class="col-md-12">
               <input type="hidden" id="id" name="id">
               <div class="form-group" id="form_nama"></div>
-              <div class="form-group" id="form_paket"></div>
               <div class="form-group">
                 <label for="guru_id">Wali Kelas</label>
                 <select id="guru_id" name="guru_id" class="select2bs4 form-control @error('guru_id') is-invalid @enderror">
@@ -101,7 +100,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="judul-siswa">View Siswa</h4>
+        <h4 class="modal-title" id="judul-siswa">Siswa</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -148,7 +147,7 @@
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
     <div class="modal-header">
-      <h4 class="modal-title" id="judul-jadwal">View Jadwal</h4>
+      <h4 class="modal-title" id="judul-jadwal">Jadwal</h4>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -199,25 +198,11 @@
         <input type='text' id="nama_kelas" onkeyup="this.value = this.value.toUpperCase()" name='nama_kelas' class="form-control @error('nama_kelas') is-invalid @enderror" placeholder="{{ __('Nama Kelas') }}">
       `);
       $('#nama_kelas').val('');
-      $('#form_paket').html('');
-      $('#form_paket').html(`
-        <label for="paket_id">Paket Keahlian</label>
-        <select id="paket_id" name="paket_id" class="select2bs4 form-control @error('paket_id') is-invalid @enderror">
-          <option value="">-- Pilih Paket Keahlian --</option>
-          @foreach ($paket as $data)
-            <option value="{{ $data->id }}">{{ $data->ket }}</option>
-          @endforeach
-        </select>
-      `);
       $('#guru_id').val('');
     }
 
     function getEditKelas(id){
       var parent = id;
-      var form_paket = (`
-        <input type="hidden" id="paket_id" name="paket_id">
-        <input type="hidden" id="nama_kelas" name="nama_kelas">
-      `);
       $.ajax({
         type:"GET",
         data:"id="+parent,
@@ -230,10 +215,7 @@
               $("#judul").text('Edit Data Kelas ' + val.nama);
               $('#id').val(val.id);
               $('#form_nama').html('');
-              $('#form_paket').html('');
-              $("#form_paket").append(form_paket);
               $('#nama_kelas').val(val.nama);
-              $("#paket_id").val(val.paket_id);
               $('#guru_id').val(val.guru_id);
             });
           }
@@ -258,7 +240,7 @@
           var siswa = "";
           if(result){
             $.each(result,function(index, val){
-              $("#judul-siswa").text('View Data Siswa ' + val.kelas);
+              $("#judul-siswa").text('Data Siswa ' + val.kelas);
               siswa += "<tr>";
                 siswa += "<td>"+val.no_induk+"</td>";
                 siswa += "<td>"+val.nama_siswa+"</td>";
@@ -290,7 +272,7 @@
           var jadwal = "";
           if(result){
             $.each(result,function(index, val){
-              $("#judul-jadwal").text('View Data Jadwal ' + val.kelas);
+              $("#judul-jadwal").text('Data Jadwal ' + val.kelas);
               jadwal += "<tr>";
                 jadwal += "<td>"+val.hari+"</td>";
                 jadwal += "<td><h5 class='card-title'>"+val.mapel+"</h5><p class='card-text'><small class='text-muted'>"+val.guru+"</small></p></td>";
